@@ -1,12 +1,12 @@
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
-        vector<int>temp(26,0);
+        unordered_map<int,int>temp;
         for(char c:words[0]){
             temp[c-'a']++;
         }
         for(int i=0;i<words.size();i++){
-            vector<int>temp1(26,0);
+            unordered_map<int,int>temp1;
             for(char c:words[i]){
                 temp1[c-'a']++;
             }
