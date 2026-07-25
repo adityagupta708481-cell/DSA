@@ -1,12 +1,12 @@
 class Solution {
 public:
     int thirdMax(vector<int>& nums) {
-        set<int> info(nums.begin(), nums.end());
-        int n = info.size();
+        set<int> temp(nums.begin(), nums.end());
+        int n = temp.size();
         if (n >= 3)
-            return *next(info.begin(),n - 3);
+            return *next(temp.begin(),n - 3);
         else
-            return *info.rbegin();
+            return *temp.rbegin();
     }
 };
-// *next(starting,index) is itrator for set.
+// *next(starting element,index) is itrator for set.
