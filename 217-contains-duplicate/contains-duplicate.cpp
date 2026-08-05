@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        set<int> info;
+        unordered_set<int> info;
         for (auto i : nums) {
             info.insert(i);
         }
