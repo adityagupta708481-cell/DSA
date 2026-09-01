@@ -20,6 +20,7 @@ public:
             }
             mp[cur] = i;
         }
-        return len == n ? -1 : len;
+        if(len!=n)return len;
+        else return -1;
     }
 };
