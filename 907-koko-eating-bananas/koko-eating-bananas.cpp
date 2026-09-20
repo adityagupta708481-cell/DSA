@@ -16,9 +16,9 @@ public:
     }
     int minEatingSpeed(vector<int>& piles, int h) {
         int low = 1, high = maxelement(piles);
-        long long ans=high;
+        int ans=high;
         while (low <= high) {
-            long long mid = (low + high) / 2;
+            int mid = (low + high) / 2;
             long long total = totalhour(piles, mid);
             if (total <= h){
                 ans=mid;
