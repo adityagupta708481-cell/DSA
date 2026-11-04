@@ -1,23 +1,35 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        auto findBound = [&](bool isFirst) {
-            int low = 0, high = (int)nums.size() - 1, ans = -1;
-            while (low <= high) {
-                int mid = low + (high - low) / 2;
-                if (nums[mid] == target) {
-                    ans = mid;
-                    if (isFirst)
-                        high = mid - 1;
-                    else
-                        low = mid + 1;
-                } else if (nums[mid] > target)
-                    high = mid - 1;
-                else
-                    low = mid + 1;
+    int fo(vector<int>& nums,int target){
+        int l=0,h=nums.size()-1;
+        int ans=-1;
+        while(l<=h){
+            int m=l+(h-l)/2;
+            if(nums[m]==target){
+                ans=m;
+                h=m-1;
             }
-            return ans;
-        };
-        return {findBound(true), findBound(false)};
+            else if(nums[m]>target)h=m-1;
+            else l=m+1;
+        }
+        return ans;
+    }
+    int lo(vector<int>& nums,int target){
+        int l=0,h=nums.size()-1;
+        int ans=-1;
+        while(l<=h){
+            int m=l+(h-l)/2;
+            if(nums[m]==target){
+                ans=m;
+                l=m+1;
+            }
+            else if(nums[m]>target)h=m-1;
+            else l=m+1;
+        }
+        return ans;
+
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        return {fo(nums,target),lo(nums,target)};
     }
 };
