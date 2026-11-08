@@ -1,14 +1,14 @@
 class Solution {
 public:
     int findMaxK(vector<int>& nums) {
-        unordered_map<int,int>mp;
+        unordered_set<int>st;
         int exist=-1;
         for(auto i:nums){
             int oppsite=0-i;
-            if(mp.find(oppsite)!=mp.end()){
+            if(st.find(oppsite)!=st.end()){
                 exist=max(exist,abs(oppsite));
             }
-            mp[i]=oppsite;
+            st.insert(i);
         }
         return exist;
     }
