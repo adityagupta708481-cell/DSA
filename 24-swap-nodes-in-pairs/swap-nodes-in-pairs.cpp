@@ -12,7 +12,7 @@ class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
         if (head == nullptr || head->next == nullptr)
-            return head; // 1. Check null first
+            return head;
         ListNode *p1 = head, *p2 = head->next;
         ListNode* ans = new ListNode(0);
         ListNode* temp = ans;
