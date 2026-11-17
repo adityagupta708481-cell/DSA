@@ -14,15 +14,19 @@ public:
 
         ListNode* ans = new ListNode(0);
         ListNode* temp = ans;
+
         if (head == nullptr || head->next == nullptr)
             return head;
+
         ListNode *cur=head;
         int len=0;
         while(cur){
             len++;
             cur=cur->next;
         }
+        
         k=k%len;
+        if(k==0)return head;
 
         ListNode *pointer1 = head, *pointer2 = head;
         for (int i = 0; i <len-k; i++) {
